@@ -19,16 +19,16 @@ struct CustomDatePicker: View {
         VStack(spacing: 35) {
             
             // Days...
-            let days: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            let days: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             
             HStack(spacing: 20) {
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("2021")
+                    Text(extraDate()[0])
                         .font(.caption)
                         .fontWeight(.semibold)
                     
-                    Text("September")
+                    Text(extraDate()[1])
                         .font(.title.bold())
                 }
                 Spacer(minLength: 0)
@@ -71,15 +71,39 @@ struct CustomDatePicker: View {
             
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(extractDate()) { value in
-                    Text("\(value.day)")
-                        .font(.title3.bold())
+                    CardView(value: value)
                 }
             }
         }
         .onChange(of: currentMonth) { oldValue, newValue in
             // updating month...
+            currentDate = getCurrentMonth()
         }
     }
+    
+    @ViewBuilder
+    func CardView(value: DateValue) -> some View {
+        VStack {
+            if value.day != -1 {
+                Text("\(value.day)")
+                    .font(.title3.bold())
+            }
+        }
+        .padding(.vertical, 8)
+        .frame(height: 60, alignment: .top)
+    }
+    
+    // extracting year and month for display...
+    
+    func extraDate() -> [String] {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY MMMM"
+        
+        let date = formatter.string(from: currentDate)
+        
+        return date.components(separatedBy: " ")
+    }
+    
     
     func getCurrentMonth() -> Date {
         let calendar = Calendar.current
@@ -102,12 +126,21 @@ struct CustomDatePicker: View {
         
         let currentMonth = getCurrentMonth()
         
-        return currentMonth.getAllDates().compactMap { date -> DateValue in
+        var days = currentMonth.getAllDates().compactMap { date -> DateValue in
             // getting day...
             let day = calendar.component(.day, from: date)
             
             return DateValue(day: day, date: date)
         }
+        
+        // adding offset days to get exact week day...
+        let firstWeekDay = calendar.component(.weekday, from: days.first?.date ?? Date())
+        
+        for _ in 0..<firstWeekDay - 1 {
+            days.insert(DateValue(day: -1, date: Date()), at: 0)
+        }
+        
+        return days
     }
     
 }
@@ -127,13 +160,13 @@ extension Date {
         let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: self))!
         
         
-        var range = calendar.range(of: .day, in: .month, for: startDate)!
+        let range = calendar.range(of: .day, in: .month, for: startDate)!
         
-        range.removeLast()
+        
         
         //getting date...
         return range.compactMap { day -> Date in
-            return calendar.date(byAdding: .day, value: day == 1 ? 0 : day, to: startDate)!
+            return calendar.date(byAdding: .day, value: day - 1, to: startDate)!
         }
     }
 }

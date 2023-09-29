@@ -14,6 +14,7 @@
 		5821767E2AC7464A00A80C6F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5821767D2AC7464A00A80C6F /* Home.swift */; };
 		582176802AC746E400A80C6F /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5821767F2AC746E400A80C6F /* CustomDatePicker.swift */; };
 		582176822AC74B9D00A80C6F /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582176812AC74B9D00A80C6F /* DateValue.swift */; };
+		582176842AC753A100A80C6F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582176832AC753A100A80C6F /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		5821767D2AC7464A00A80C6F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		5821767F2AC746E400A80C6F /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		582176812AC74B9D00A80C6F /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
+		582176832AC753A100A80C6F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				582176812AC74B9D00A80C6F /* DateValue.swift */,
+				582176832AC753A100A80C6F /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				5821766F2AC739EC00A80C6F /* ContentView.swift in Sources */,
 				5821767E2AC7464A00A80C6F /* Home.swift in Sources */,
 				5821766D2AC739EC00A80C6F /* calendarApp.swift in Sources */,
+				582176842AC753A100A80C6F /* Task.swift in Sources */,
 				582176822AC74B9D00A80C6F /* DateValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
