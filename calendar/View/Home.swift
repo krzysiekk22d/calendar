@@ -46,6 +46,11 @@ struct Home: View {
                 
                 
             }
+            .padding(.horizontal)
+            .padding(.top, 10)
+            .foregroundStyle(Color.white)
+            .background(.ultraThinMaterial)
+            
         }
     }
 }
