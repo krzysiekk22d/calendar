@@ -11,6 +11,9 @@
 		5821766F2AC739EC00A80C6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5821766E2AC739EC00A80C6F /* ContentView.swift */; };
 		582176712AC739EE00A80C6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 582176702AC739EE00A80C6F /* Assets.xcassets */; };
 		582176742AC739EE00A80C6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 582176732AC739EE00A80C6F /* Preview Assets.xcassets */; };
+		5821767E2AC7464A00A80C6F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5821767D2AC7464A00A80C6F /* Home.swift */; };
+		582176802AC746E400A80C6F /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5821767F2AC746E400A80C6F /* CustomDatePicker.swift */; };
+		582176822AC74B9D00A80C6F /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582176812AC74B9D00A80C6F /* DateValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		5821766E2AC739EC00A80C6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		582176702AC739EE00A80C6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		582176732AC739EE00A80C6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5821767D2AC7464A00A80C6F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		5821767F2AC746E400A80C6F /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		582176812AC74B9D00A80C6F /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,8 @@
 		5821766B2AC739EC00A80C6F /* calendar */ = {
 			isa = PBXGroup;
 			children = (
+				5821767C2AC7460500A80C6F /* Model */,
+				5821767A2AC745FC00A80C6F /* View */,
 				5821766C2AC739EC00A80C6F /* calendarApp.swift */,
 				5821766E2AC739EC00A80C6F /* ContentView.swift */,
 				582176702AC739EE00A80C6F /* Assets.xcassets */,
@@ -65,6 +73,23 @@
 				582176732AC739EE00A80C6F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5821767A2AC745FC00A80C6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5821767D2AC7464A00A80C6F /* Home.swift */,
+				5821767F2AC746E400A80C6F /* CustomDatePicker.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5821767C2AC7460500A80C6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				582176812AC74B9D00A80C6F /* DateValue.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582176802AC746E400A80C6F /* CustomDatePicker.swift in Sources */,
 				5821766F2AC739EC00A80C6F /* ContentView.swift in Sources */,
+				5821767E2AC7464A00A80C6F /* Home.swift in Sources */,
 				5821766D2AC739EC00A80C6F /* calendarApp.swift in Sources */,
+				582176822AC74B9D00A80C6F /* DateValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
