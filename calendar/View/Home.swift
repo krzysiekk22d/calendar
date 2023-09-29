@@ -19,6 +19,33 @@ struct Home: View {
                 // Custom Date Picker...
                 CustomDatePicker(currentDate: $currentDate)
             })
+            .padding(.vertical)
+        }
+        // safe area view...
+        .safeAreaInset(edge: .bottom) {
+            HStack {
+                Button {
+                    
+                } label: {
+                    Text("Add task")
+                        .fontWeight(.bold)
+                        .padding(.vertical)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.orange, in: Capsule())
+                }
+                
+                Button {
+                    
+                } label: {
+                    Text("Add reminder")
+                        .fontWeight(.bold)
+                        .padding(.vertical)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.purple, in: Capsule())
+                }
+                
+                
+            }
         }
     }
 }
