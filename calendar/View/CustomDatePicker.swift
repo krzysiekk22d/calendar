@@ -19,7 +19,8 @@ struct CustomDatePicker: View {
         VStack(spacing: 35) {
             
             // Days...
-            let days: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+            let days: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
             
             HStack(spacing: 20) {
                 
@@ -32,6 +33,15 @@ struct CustomDatePicker: View {
                         .font(.title.bold())
                 }
                 Spacer(minLength: 0)
+                
+                Button(action: {
+                    withAnimation {
+                        currentMonth = 0
+                        currentDate = Date()
+                    }
+                }, label: {
+                    Text("Today")
+                })
                 
                 Button(action: {
                     withAnimation {
@@ -85,7 +95,7 @@ struct CustomDatePicker: View {
             }
             
             VStack(spacing: 15) {
-                Text("Tasks")
+                Text("Revisions")
                     .font(.title2.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 20)
@@ -207,7 +217,7 @@ struct CustomDatePicker: View {
         // adding offset days to get exact week day...
         let firstWeekDay = calendar.component(.weekday, from: days.first?.date ?? Date())
         
-        for _ in 0..<firstWeekDay - 1 {
+        for _ in 0..<(firstWeekDay - 2 + 7) % 7 {
             days.insert(DateValue(day: -1, date: Date()), at: 0)
         }
         

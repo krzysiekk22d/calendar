@@ -13,7 +13,7 @@ struct Home: View {
     
     var body: some View {
         
-        ScrollView(.vertical) {
+        ScrollView(.vertical, showsIndicators: false) {
             
             VStack(spacing: 20, content: {
                 // Custom Date Picker...
@@ -43,8 +43,6 @@ struct Home: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.purple, in: Capsule())
                 }
-                
-                
             }
             .padding(.horizontal)
             .padding(.top, 10)
