@@ -140,12 +140,12 @@ struct CustomDatePicker: View {
     func CardView(value: DateValue) -> some View {
         VStack {
             if value.day != -1 {
-                if let task = tasks.first(where: { task in
+                if tasks.first(where: { task in
                     return isSameDay(date1: task.taskDate, date2: value.date)
-                }) {
+                }) != nil {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundStyle(.primary)
+                        .foregroundStyle(Color("myTextColor"))
                         .frame(maxWidth: .infinity)
                     
                     Spacer()
@@ -157,7 +157,7 @@ struct CustomDatePicker: View {
                 else {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundStyle(isSameDay(date1: value.date, date2: currentDate) ? .black : .primary)
+                        .foregroundStyle(isSameDay(date1: value.date, date2: Date()) ? Color.black : Color.primary)
                         .frame(maxWidth: .infinity)
                     Spacer()
                 }
