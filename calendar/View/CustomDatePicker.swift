@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomDatePicker: View {
     
+    
     @Binding var currentDate: Date
     
     // month update on arrow button clicks...
@@ -20,7 +21,7 @@ struct CustomDatePicker: View {
             
             // Days...
             let days: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
+            
             
             HStack(spacing: 20) {
                 
@@ -40,7 +41,8 @@ struct CustomDatePicker: View {
                         currentDate = Date()
                     }
                 }, label: {
-                    Text("Today")
+                    Image(systemName: "calendar")
+                        .font(.title2)
                 })
                 
                 Button(action: {
@@ -83,10 +85,9 @@ struct CustomDatePicker: View {
                 ForEach(extractDate()) { value in
                     CardView(value: value)
                         .background(
-                        Capsule()
-                            .fill(Color.pink)
-                            .padding(.horizontal, 8)
-                            .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.mint, lineWidth: 2) // Kolor i grubość krawędzi
+                                .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
                         )
                         .onTapGesture {
                             currentDate = value.date
@@ -144,19 +145,19 @@ struct CustomDatePicker: View {
                 }) {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundStyle(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .primary)
+                        .foregroundStyle(.primary)
                         .frame(maxWidth: .infinity)
                     
                     Spacer()
                     
                     Circle()
-                        .fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color.pink)
+                        .fill(Color.pink)
                         .frame(width: 8, height: 8)
                 }
                 else {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundStyle(isSameDay(date1: value.date, date2: currentDate) ? .white : .primary)
+                        .foregroundStyle(isSameDay(date1: value.date, date2: currentDate) ? .black : .primary)
                         .frame(maxWidth: .infinity)
                     Spacer()
                 }
@@ -164,6 +165,19 @@ struct CustomDatePicker: View {
         }
         .padding(.vertical, 9)
         .frame(height: 60, alignment: .top)
+        .background(
+            
+            GeometryReader { geometry in
+                Path { path in
+                    let rect = CGRect(x: 5, y: 7, width: 40, height: 28) // Określ niestandardowy prostokąt
+                    
+                    let cornerRadius: CGFloat = 10 // Ustal rozmiar zaokrąglenia rogów
+                    
+                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: cornerRadius, height: cornerRadius))
+                }
+                .fill(isSameDay(date1: value.date, date2: Date()) ? Color.mint : Color.clear)
+            }
+        )
     }
     
     //checking dates...
